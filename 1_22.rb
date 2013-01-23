@@ -2,35 +2,25 @@
 
 def searchForPrimes(first, last)
   while first <= last
-    if first.even?
-      first = first + 1
-    else
-      timedPrimeTest first
-      first = first + 1
-    end
+    timedPrimeTest first
+    first = first + 1
   end
 end
-
-#(define (search-for-primes start end)
-#  (define (search-iter current end)
-#    (cond ((> current end) (newline) (display "done"))
-#          ((even? current) (search-iter (+ current 1) end))
-#          (else (timed-prime-test current)
-#                (search-iter (+ current 2) end))))
-#  (search-iter start end))
 
 def timedPrimeTest(n)
   start = Time.now
   isPrime = prime? n
   if isPrime
     print "#{n} is prime.  Time elapsed: #{Time.now - start} seconds.\n"
-  #else
-  #  print "#{n} is not prime.  Time elapsed: #{Time.now - start} seconds.\n"
   end
 end
 
 def prime?(n)
-  n == smallestDivisor(n)
+  if n < 4
+    true
+  else
+    n == smallestDivisor(n)
+  end
 end
 
 def smallestDivisor(n)
