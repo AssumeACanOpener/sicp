@@ -26,4 +26,5 @@
           (else
            (remainder (* base (expmod base (- exp 1) m))
                       m))))
-  (fast-prime? n 100))
+  (cond ((< n 3)  true)
+        (else (fast-prime? n 100))))
