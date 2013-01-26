@@ -1,51 +1,42 @@
 #!/usr/bin/ruby
 
-#def integral(f, a, b, n)
+cube = lambda{|x| x * x * x}
 
-#  def simpsonsRule(n)
-#    (h() / 3) * sum(simpsonsTerm, 0, inc, n)
-#  end
+inc = lambda{|x| x + 1}
 
-#  def simpsonsTerm(k)
-#    if k == 0
-#      f(a + k * h)
-#    elsif k == n
-#      f(a + k * h)
-#    elsif k.odd?
-#      4 * f(a + k * h)
-#    elsif k.even?
-#      2 * f(a + k * h)
-#    else
-#      assert "Error: the world has ended"
-#  end
+f1 = lambda{|x|  2 * x}
 
-#  def h()
-#    (b - a) / n
-#  end
-  
-#  simpsonsRule(n)
-#end
+identity = lambda{|x| x}
 
-def sum(term, a, nextTerm, b)
+def sum(term, a, next_term, b)
   if a > b
     0
   else
-    term(a) + sum(term, nextTerm(a), nextTerm, b)
+    term.call(a) + sum(term, next_term.call(a), next_term, b)
   end
 end
 
-def cube(n)
-  n * n * n
+def integral(f, a, b, n, inc)
+
+  h = lambda{(b - a) / n}
+
+  simpsons_term = lambda{|k|
+    if k == 0
+      f(a + k * h.call())
+    elsif k == n
+      f(a + k * h.call())
+    elsif k.odd?
+      4 * f(a + k * h.call())
+    elsif k.even?
+      2 * f(a + k * h.call())
+    else
+      assert "Error: the world has ended"
+    end
+  }
+  
+  simpsons_rule = lambda{|n| (h.call() / 3) * sum(simpsons_term, 0, inc, n)}
+
+  simpsons_rule.call(n)
 end
 
-def inc(n)
-  n + 1
-end
-
-def f1(x)
-  2 * x
-end
-
-def identity(x)
-  x
-end
+puts integral(f1, 0, 10, 10, inc)
