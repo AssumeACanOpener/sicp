@@ -22,13 +22,13 @@ def integral(f, a, b, n, inc)
 
   simpsons_term = lambda{|k|
     if k == 0
-      f(a + k * h.call())
+      f.call(a + k * h.call())
     elsif k == n
-      f(a + k * h.call())
+      f.call(a + k * h.call())
     elsif k.odd?
-      4 * f(a + k * h.call())
+      4 * f.call(a + k * h.call())
     elsif k.even?
-      2 * f(a + k * h.call())
+      2 * f.call(a + k * h.call())
     else
       assert "Error: the world has ended"
     end
@@ -39,4 +39,4 @@ def integral(f, a, b, n, inc)
   simpsons_rule.call(n)
 end
 
-puts integral(f1, 0, 10, 10, inc)
+puts integral(f1, -100.0, 100.0, 1000, inc)
