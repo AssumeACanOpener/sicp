@@ -25,3 +25,15 @@
     (= (remainder b a) 0))
   (cond ((< n 3) true)
         (else (= n (smallest-divisor n)))))
+
+(define (gcd a b)
+  (if (= b 0)
+      a
+      (gcd b (remainder a b))))
+
+(define (product-of-relative-primes n)
+  (define (relative-prime-filter i)
+    (= (gcd n i) 1))
+  (filtered-accumulate relative-prime-filter * 1 identity 1 inc n))
+
+(define (identity n) n)
