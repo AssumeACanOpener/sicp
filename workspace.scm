@@ -77,4 +77,24 @@
                     (square (car things))))))
   (iter items nil))
 
-;;(define (for-each proc s)
+(define (for-each proc s)
+  (if (not (null? s))
+    (begin
+      (proc (car s))
+      (for-each proc (cdr s)))))
+
+(define (reverse s)
+  (if (null? (cdr s))
+      s
+      (append (reverse (cdr s))
+              (list (car s)))))
+
+(define (deep-reverse s)
+  (cond ((null? (cdr s))
+          s)
+        ((list? (car s))
+          (append (deep-reverse (cdr s))
+                  (list (deep-reverse (car s)))))
+        (else
+          (append (deep-reverse (cdr s))
+                  (list (car s))))))

@@ -1,14 +1,11 @@
-(define (deep-reverse forward-list)
-  (define (iter forward-list reverse-list)
-    (if (null? forward-list)
-        reverse-list
-        (if (pair? (car forward-list))
-            (iter (cdr forward-list)
-                  (cons (deep-reverse (car forward-list))
-                        reverse-list))
-            (iter (cdr forward-list)
-                  (cons (car forward-list)
-                        reverse-list)))))
-  (iter forward-list (list)))
+(define (deep-reverse s)
+  (cond ((null? (cdr s))
+          s)
+        ((list? (car s))
+          (append (deep-reverse (cdr s))
+                  (list (deep-reverse (car s)))))
+        (else
+          (append (deep-reverse (cdr s))
+                  (list (car s))))))
 
 (define a (list (list 1 2) (list 3 4)))
