@@ -98,3 +98,10 @@
         (else
           (append (deep-reverse (cdr s))
                   (list (car s))))))
+
+(define (fringe s)
+  (if (null? s)
+      s
+      (if (pair? (car s))
+        (append (fringe (car s)) (fringe (cdr s)))
+        (append (list (car s)) (fringe (cdr s))))))
