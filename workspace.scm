@@ -144,3 +144,17 @@
             (* (branch-weight (left-branch mobile))
                (branch-length (left-branch mobile)))))
     true))
+
+(define (square-tree tree)
+  (cond ((null? tree) nil)
+        ((pair? tree) 
+          (cons (square-tree (car tree))
+                (square-tree (cdr tree))))
+        (else (square tree))))
+
+(define (square-tree-with-map tree)
+  (map (lambda (subtree)
+         (if (pair? subtree)
+           (square-tree-with-map subtree)
+           (square subtree)))
+    tree))
