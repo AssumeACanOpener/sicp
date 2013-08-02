@@ -25,14 +25,14 @@
   (+ (branch-weight (left-branch mobile))
      (branch-weight (right-branch mobile))))
 
-(define (balanced? mobile)
+(define (balanced-mobile? mobile)
   (if (pair? mobile)
       (and (= (* (total-weight (left-branch mobile))
                  (branch-length (left-branch mobile)))
               (* (total-weight (right-branch mobile))
                  (branch-length (right-branch mobile))))
-           (balanced? (branch-structure (left-branch mobile)))
-           (balanced? (branch-structure (right-branch mobile))))
+           (balanced-mobile? (branch-structure (left-branch mobile)))
+           (balanced-mobile? (branch-structure (right-branch mobile))))
       true))
 
 (define (make-mobile2 left right)

@@ -105,3 +105,42 @@
       (if (pair? (car s))
         (append (fringe (car s)) (fringe (cdr s)))
         (append (list (car s)) (fringe (cdr s))))))
+
+
+
+(define (make-mobile left right)
+  (cons left right))
+
+(define (make-branch length structure)
+  (cons length structure))
+
+(define (left-branch mobile)
+  (car mobile))
+
+(define (right-branch mobile)
+  (cdr mobile))
+
+(define (branch-length branch)
+  (car branch))
+
+(define (branch-structure branch)
+  (cdr branch))
+
+(define (total-weight mobile)
+  (+ (branch-weight (left-branch mobile))
+     (branch-weight (right-branch mobile))))
+
+(define (branch-weight branch)
+  (if (pair? (branch-structure branch))
+    (total-weight (branch-structure branch))
+    (branch-structure branch)))
+
+(define (balanced-mobile? mobile)
+  (if (pair? mobile)
+    (and (balanced-mobile? (branch-structure (right-branch mobile)))
+         (balanced-mobile? (branch-structure (left-branch mobile)))
+         (= (* (branch-weight (right-branch mobile))
+               (branch-length (right-branch mobile)))
+            (* (branch-weight (left-branch mobile))
+               (branch-length (left-branch mobile)))))
+    true))
