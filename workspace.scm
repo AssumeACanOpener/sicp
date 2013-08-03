@@ -158,3 +158,28 @@
            (square-tree-with-map subtree)
            (square subtree)))
     tree))
+
+(define (tree-map f tree)
+  (map (lambda (subtree)
+         (if (pair? subtree)
+           (tree-map f subtree)
+           (f subtree)))
+    tree))
+
+(define (square-with-tree-map tree)
+  (tree-map square tree))
+
+(define (accumulate proc base sequence)
+  (if (null? sequence)
+    base
+    (proc (car sequence)
+          (accumulate proc base (cdr sequence)))))
+
+(define (accum-map p sequence)
+  (accumulate (lambda (x y) (cons (p x) y)) nil sequence))
+
+(define (accum-append seq1 seq2)
+  (accumulate cons seq2 seq1))
+
+(define (accum-length sequence)
+  (accumulate (lambda (x y) (+ y 1)) 0 sequence))
