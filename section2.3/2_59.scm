@@ -18,4 +18,10 @@
 (define (union-set set1 set2)
   (cond ((null? set1) set2)
         ((null? set2) set1)
-        (else set1)))
+        (else (if (element-of-set? (car set2) set1)
+                (union-set set1 (cdr set2))
+                (union-set (adjoin-set (car set2) set1) (cdr set2))))))
+
+(define set1 (list 1 2 3 4 5))
+(define set2 (list 3 4 5 6 7 8 9))
+
