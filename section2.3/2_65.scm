@@ -67,7 +67,7 @@
           tree1)))
 
 (define (union tree1 tree2)
-  tree2)
+  tree1)
 
 (define tree1 (adjoin-set 2 (adjoin-set 7 (adjoin-set 6 (make-tree 5 nil nil)))))
 (define tree2 (adjoin-set 455 (adjoin-set 1000 (adjoin-set 122 (adjoin-set 17 (adjoin-set 68 (make-tree 25 nil nil)))))))
