@@ -61,3 +61,36 @@
                 (make-product (deriv (multiplicand operands) var)
                               (multiplier operands)))))
   'done)
+
+(define (install-exponentiation-deriv)
+  ;;Internal
+  (define (=number? a b)
+    (if (and (number? a) (number? b))
+      (eq? a b)
+      false))
+  (define (exponentiation? x)
+    (and (pair? x) (eq? (car x) '**)))
+  (define (base e) (car e))
+  (define (exponent e) (cadr e))
+  (define (make-exponentiation b e)
+    (cond ((=number? b 0) 0)
+          ((=number? e 0) 1)
+          ((=number? e 1) b)
+          ((and (number? b) (number? e)) (expt b e))
+          (else (list '** b e))))
+  (define (make-product m1 m2)
+    (cond ((or (=number? m1 0) (=number? m2 0)) 0)
+          ((=number? m1 1) m2)
+          ((=number? m2 1) m1)
+          ((and (number? m1) (number? m2)) (* m1 m2))
+          (else (list '* m1 m2))))
+  ;;Interface
+  (put 'deriv '**
+    (lambda (operands var)
+      (make-product
+        (make-product
+          (exponent operands)
+          (make-exponentiation (base operands)
+                               (+ (exponent operands) (- 1))))
+        (deriv (base operands) var))))
+  'done)
