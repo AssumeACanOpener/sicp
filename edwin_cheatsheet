@@ -1,0 +1,64 @@
+General
+-------
+Ctrl-x Ctrl-c:  quit
+Ctrl-h:         help
+Ctrl-h t:       tutorial
+Ctrl-h m:       help with current mode
+Ctrl-g:         start a command over
+
+Buffers
+-------
+Ctrl-x Ctrl-f:  open file
+Ctrl-x Ctrl-s:  save file
+Ctrl-x s     :  save modified buffers
+Ctrl-x Ctrl-b:  list buffers
+
+Ctrl-x b (buffer):  open (buffer)
+*scheme* for evaluation buffer
+"some_name" for a named buffer
+
+Ctrl-x Ctrl-e:  evaluate expression
+Ctrl-c Ctrl-c:  cancel evaluation
+Alt-p:          previous expression?
+
+Cursor movement
+---------------
+arrow keys for one char at a time.  easier than ctrl-f etc.
+Ctrl-v:         next page
+Alt-v:          previous page
+Ctrl-l:         center page on cursor
+Ctrl-a:         beginning of a line
+Ctrl-e:         end of a line
+Alt-a:          beginning of a sentence
+Alt-e:          end of a sentence
+Alt-<:          beginning of file
+Alt->:          end of file
+
+Repeating commands
+------------------
+Ctrl-u (num) (command)
+Repeats (command) num times.
+Example: Ctrl-u 2 Ctrl-n
+Makes Ctrl-v and Alt-v move by lines for some reason
+
+Editing text
+------------
+Backspace:     delete before cursor
+Ctrl-d:        delete char after cursor
+Alt-backspace: delete word before cursor
+Alt-d:         delete word after cursor
+Ctrl-k:        delete to the end of the line
+Alt-k:         delete to the end of the sentence
+Ctrl-y:        yank back (paste)
+Alt-y:         yank previous (wraps around)
+Ctrl-x u       undo
+
+Searching
+---------
+Ctrl-s: search
+Ctrl-r: reverse search
+
+Windows
+-------
+Ctrl-x 1: kill all other windows
+Ctrl-x 2: open 2 windows?
