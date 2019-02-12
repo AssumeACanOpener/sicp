@@ -20,6 +20,7 @@ Ctrl-x b (buffer):  open (buffer)
 Ctrl-x Ctrl-e:  evaluate expression
 Ctrl-c Ctrl-c:  cancel evaluation
 Alt-p:          previous expression?
+Ctrl-Alt-z:     evaluate buffer
 
 Cursor movement
 ---------------
