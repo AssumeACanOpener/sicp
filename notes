@@ -1,0 +1,5 @@
+If going with Dr. Racket:
+Open the package manager and go to "do what I mean".
+Type in "sicp".
+Install that sucker.
+Use the "#lang sicp" directive at the beginning of any code.
