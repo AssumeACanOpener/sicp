@@ -51,3 +51,42 @@
         ((and (>= x y) (>= z y)) (sum_of_squares x z))
         (else (sum_of_squares y z))))
 
+;;;;;;;;;;;;;;;;
+; exercise 1.7 ;
+;;;;;;;;;;;;;;;;
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (improve guess x)
+  (average (/ x guess) guess))
+
+;(define (good-enough? guess x)
+;  (< (abs (- (square guess) x)) .001))
+
+(define (good-enough? guess x)
+  (< (abs (- 1 (/ (square guess) x))) .001))
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+(define (sqrt x) (sqrt-iter 1.0 x))
+
+;;;;;;;;;;;;;;;;
+; exercise 1.8 ;
+;;;;;;;;;;;;;;;;
+(define (cube-root x) (cube-root-iter 1.0 x))
+
+(define (cube-root-iter guess x)
+  (if (cube-good-enough? guess x)
+      guess
+      (cube-root-iter (cube-root-improve guess x) x)))
+
+(define (cube-good-enough? guess x)
+  (< (abs (- 1 (/ (cube guess) x))) .000000001))
+
+(define (cube-root-improve guess x)
+  (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+
+(define (cube x) (* x x x))
