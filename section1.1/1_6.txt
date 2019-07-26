@@ -1,0 +1,5 @@
+Because the interpreter uses applicative order evaluation
+the new-if procedure will try and evaluate the sqrt-iter
+argument before it does anything.  This will cause the
+new-if procedure to again be called which will then call
+sqrt-iter and so on.

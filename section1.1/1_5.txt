@@ -1,0 +1,9 @@
+With applicative order, when the test procedure is evaluated,
+it will try and evaluate the arguments to the test procedure.
+Since the p procedure argument evaluates to itself this
+procedure will again be evauated, and on and on ad infinitum.
+
+With normal order, the arguments aren't evaluated right away.
+And since the first argument passed to test is 0, the
+p procedure will never need to be evaluated, so the procedure
+will return 0.
