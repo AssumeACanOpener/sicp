@@ -1,14 +1,19 @@
-(define (f n)
+(define (procedure-1-11 n)
   (if (< n 3)
       n
-      (+ (f (- n 1))
-         (* 2 (f (- n 2)))
-         (* 3 (f (- n 3))))))
+      (+ (procedure-1-11 (- n 1))
+         (* 2 (procedure-1-11 (- n 2)))
+         (* 3 (procedure-1-11 (- n 3))))))
 
-(define (f2 n)
-  (define (iter n1 n2 n3 count)
-    (cond ((< count 3) n3) 
-          (else (iter n2 n3  (+ (* 3 n1) (* 2 n2) n3) (- count 1)))))
-  (cond ((< n 3) n)
-        (else (iter 0 1 2 n))))
+(define (iterative-1-11 n)
+  (define (iter f-3 f-2 f-1 count)
+    (if (> count n)
+        f-1
+        (iter f-2 f-1 (+ f-1
+                         (* 2 f-2)
+                         (* 3 f-3))
+              (+ count 1))))
 
+  (if (< n 3)
+      n
+      (iter 0 1 2 3)))
