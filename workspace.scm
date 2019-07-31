@@ -1,7 +1,5 @@
 #lang sicp
 
-;the semicolon is apparently how you do comments
-
 ;;;;;;;;;;;;;;;;
 ; exercise 1.1 ;
 ;;;;;;;;;;;;;;;;
@@ -90,3 +88,47 @@
   (/ (+ (/ x (square guess)) (* 2 guess)) 3))
 
 (define (cube x) (* x x x))
+
+;;;;;;;;;;;;;;;;;
+; exercise 1.11 ;
+;;;;;;;;;;;;;;;;;
+(define (recursive-1-11 n)
+  (if (< n 3)
+      n
+      (+ (recursive-1-11 (- n 1))
+         (* 2 (recursive-1-11 (- n 2)))
+         (* 3 (recursive-1-11 (- n 3))))))
+
+(define (iterative-1-11 n)
+  (define (iter f-3 f-2 f-1 count)
+    (if (> count n)
+        f-1
+        (iter f-2 f-1 (+ f-1
+                         (* 2 f-2)
+                         (* 3 f-3))
+              (+ count 1))))
+  (if (< n 3)
+      n
+      (iter 0 1 2 3)))
+
+;;;;;;;;;;;;;;;;;
+; exercise 1.12 ;
+;;;;;;;;;;;;;;;;;
+(define (pascal-triangle row column)
+  (if (or (<= column 1) (>= column row))
+      1
+      (+ (pascal-triangle (- row 1) (- column 1))
+         (pascal-triangle (- row 1) column))))
+
+;;;;;;;;;;;;;;;;;
+; exercise 1.16 ;
+;;;;;;;;;;;;;;;;;
+(define (iterative-expt b n)
+  (define (iter b n a)
+    (cond ((= n 0) a)
+          ((even? n)
+            (* (iter b (/ n 2) a)
+               (iter b (/ n 2) a)))
+          (else
+            (* b (iter b (- n 1) a)))))
+  (iter b n 1))
