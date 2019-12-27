@@ -6,10 +6,10 @@
 1007
 1009 *** 3
 1011
-1013 *** 4
+1013 *** 3
 1015
 1017
-1019 *** 3
+1019 *** 4
 Done
 
 > (search-for-primes 10001 10039)
@@ -17,8 +17,8 @@ Done
 10001
 10003
 10005
-10007 *** 9
-10009 *** 9
+10007 *** 7
+10009 *** 6
 10011
 10013
 10015
@@ -32,14 +32,14 @@ Done
 10031
 10033
 10035
-10037 *** 9
-10039 *** 9
+10037 *** 6
+10039 *** 6
 Done
 
 > (search-for-primes 100001 100049)
 
 100001
-100003 *** 28
+100003 *** 17
 100005
 100007
 100009
@@ -47,7 +47,7 @@ Done
 100013
 100015
 100017
-100019 *** 28
+100019 *** 18
 100021
 100023
 100025
@@ -59,16 +59,16 @@ Done
 100037
 100039
 100041
-100043 *** 29
+100043 *** 17
 100045
 100047
-100049 *** 29
+100049 *** 26
 Done
 
 > (search-for-primes 1000001 1000049)
 
 1000001
-1000003 *** 80
+1000003 *** 50
 1000005
 1000007
 1000009
@@ -83,10 +83,10 @@ Done
 1000027
 1000029
 1000031
-1000033 *** 81
+1000033 *** 50
 1000035
-1000037 *** 80
-1000039 *** 99
+1000037 *** 49
+1000039 *** 50
 1000041
 1000043
 1000045
@@ -95,11 +95,10 @@ Done
 Done
 
 n=1000, approximately 3 seconds.
-n=10000, approximately 9 seconds.
-n=100000, approximately 28 seconds.
-n=1000000, approximately 80 seconds.
-3 * sqrt(10) = 9.5
-9 * sqrt(10) = 28.5
-28 * sqrt(10) = 88.5
+n=10000, approximately 6 seconds.
+n=100000, approximately 18 seconds.
+n=1000000, approximately 50 seconds.
 
-So yes, the timing seems compatible with the order of sqrt(10) prediction.
+So the next function seems to shave off about a third of the time.  My guess as to why it's not
+halved is that incrementing with next takes longer than incrementing by 1 because of the if
+statement in the next function.

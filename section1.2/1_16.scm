@@ -1,4 +1,4 @@
-(define (fast-expt b n)
+(define (iterative-fast-expt b n)
   (define (iter a b n)
     (cond ((= n 0) a)
           ((even? n) (iter a (* b b) (/ n 2)))

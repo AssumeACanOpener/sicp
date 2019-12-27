@@ -1,25 +1,39 @@
-(define (search-for-primes start end)
-  (define (search-iter current end)
-    (cond ((> current end)
-            (newline) (display "done"))
-          (else (cond ((prime? current)
-                        (newline)
-                        (display current)
-                        (display " is prime.")))
-                (search-iter (+ current 1) end))))
-  (search-iter start end))
-
 (define (prime? n)
-  (define (smallest-divisor n)
-    (find-divisor n 2))
-  (define (find-divisor n test-divisor)
+
+  (define (square x) (* x x))
+
+  (define (divides? a b) (= (remainder b a) 0))
+
+  (define (next n)
+    (if (= n 2)
+        3
+        (+ n 2)))
+
+  (define (find-divisor n test-divisor)  
     (cond ((> (square test-divisor) n) n)
           ((divides? test-divisor n) test-divisor)
           (else (find-divisor n (next test-divisor)))))
-  (define (divides? a b)
-    (= (remainder b a) 0))
-  (define (next n)
-    (cond ((< n 3) (+ n 1))
-          (else (+ n 2))))
-  (cond ((< n 3) n)
-        (else (= n (smallest-divisor n)))))
+
+  (define (smallest-divisor n) (find-divisor n 2))
+
+  (= n (smallest-divisor n)))
+
+(define (timed-prime-test n)
+  (newline)
+  (display n)
+  (start-prime-test n (runtime)))
+
+(define (start-prime-test n start-time)
+  (if (prime? n)
+      (report-prime (- (runtime) start-time))))
+
+(define (report-prime elapsed-time)
+  (display " *** ")
+  (display elapsed-time))
+
+(define (search-for-primes start finish)
+  (timed-prime-test start)
+  (if (>= start finish)
+      (begin (newline)
+             (display "Done"))
+      (search-for-primes (+ start 2) finish)))
