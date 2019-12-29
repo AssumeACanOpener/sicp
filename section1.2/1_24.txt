@@ -1,0 +1,39 @@
+> (timed-fast-prime 1009)
+
+1009 *** 422
+> (timed-fast-prime 1013)
+
+1013 *** 191
+> (timed-fast-prime 1019)
+
+1019 *** 197
+> (timed-fast-prime 10007)
+
+10007 *** 234
+> (timed-fast-prime 10009)
+
+10009 *** 281
+> (timed-fast-prime 10037)
+
+10037 *** 240
+> (timed-fast-prime 100003)
+
+100003 *** 264
+> (timed-fast-prime 100019)
+
+100019 *** 297
+> (timed-fast-prime 100043)
+
+100043 *** 275
+> (timed-fast-prime 1000003)
+
+1000003 *** 340
+> (timed-fast-prime 1000033)
+
+1000033 *** 310
+> (timed-fast-prime 1000037)
+
+1000037 *** 564
+
+
+I would expect times to be very similar since the algorithm is logrithmic, and that indeed seems to be the case.
