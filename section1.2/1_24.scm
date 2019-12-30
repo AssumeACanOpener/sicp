@@ -1,6 +1,7 @@
-(define (fast-prime? n times)
+#lang sicp
+(#%require "../common.scm")
 
-  (define (square x) (* x x))
+(define (fast-prime? n times)
 
   (define (expmod base exp m)
     (cond ((= exp 0) 1)
@@ -19,7 +20,7 @@
 (define (timed-fast-prime n)
 
   (define (report-prime elapsed-time)
-    (display " *** ")
+    (display " *** PRIME ***")
     (display elapsed-time))
 
   (define (start-prime-test n start-time)

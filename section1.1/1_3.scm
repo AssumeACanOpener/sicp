@@ -1,6 +1,7 @@
-(define (largest-sum-of-squares x y z)
+#lang sicp
+(#%require "../common.scm")
 
-  (define (square x) (* x x))
+(define (largest-sum-of-squares x y z)
 
   (define (sum-of-squares x y)
     (+ (square x) (square y)))

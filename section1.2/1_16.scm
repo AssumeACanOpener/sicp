@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (iterative-fast-expt b n)
   (define (iter a b n)
     (cond ((= n 0) a)

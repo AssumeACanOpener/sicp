@@ -1,24 +1,22 @@
+#lang sicp
+(#%require "../common.scm")
+
 (define (newton-sqrt x)
 
-  (define (average x y)
-    (/ (+ x y) 2))
-
-  (define (improve guess x)
+  (define (improve guess)
     (average (/ x guess) guess))
-
-  (define (square x) (* x x))
-
+  
   ; Original good-enough? function
   ;(define (good-enough? guess x)
   ;  (< (abs (- (square guess) x)) 0.001))
 
   ; New good-enough? checks the percent difference
-  (define (good-enough? guess x)
-    (< (abs (- 1 (/ (square guess) x))) .001))
+  (define (good-enough? guess)
+    (< (abs (- 1 (/ (square guess) x))) .00001))
   
-  (define (sqrt-iter guess x)
-    (if (good-enough? guess x)
+  (define (sqrt-iter guess)
+    (if (good-enough? guess)
         guess
-        (sqrt-iter (improve guess x) x)))
+        (sqrt-iter (improve guess))))
 
-  (sqrt-iter 1.0 x))
+  (sqrt-iter 1.0))

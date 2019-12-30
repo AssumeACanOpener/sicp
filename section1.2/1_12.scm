@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (pascal-triangle row column)
   (if (or (<= column 1) (>= column row))
       1

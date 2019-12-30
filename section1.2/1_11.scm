@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (recursive-f n)
   (if (< n 3)
       n

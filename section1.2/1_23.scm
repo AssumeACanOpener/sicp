@@ -1,9 +1,5 @@
 (define (prime? n)
 
-  (define (square x) (* x x))
-
-  (define (divides? a b) (= (remainder b a) 0))
-
   (define (next n)
     (if (= n 2)
         3
@@ -28,7 +24,7 @@
       (report-prime (- (runtime) start-time))))
 
 (define (report-prime elapsed-time)
-  (display " *** ")
+  (display " *** PRIME ***")
   (display elapsed-time))
 
 (define (search-for-primes start finish)

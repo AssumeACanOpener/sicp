@@ -1,7 +1,7 @@
-(define (logrithmic-fib n)
+#lang sicp
+(#%require "../common.scm")
 
-  (define (square x) (* x x))
-  
+(define (logrithmic-fib n)
   (define (fib-iter a b p q count)
     (cond ((= count 0) b)
           ((even? count) (fib-iter a

@@ -1,8 +1,7 @@
+#lang sicp
+(#%require "../common.scm")
+
 (define (prime? n)
-
-  (define (square x) (* x x))
-
-  (define (divides? a b) (= (remainder b a) 0))
 
   (define (find-divisor n test-divisor)  
     (cond ((> (square test-divisor) n) n)
@@ -23,7 +22,7 @@
       (report-prime (- (runtime) start-time))))
 
 (define (report-prime elapsed-time)
-  (display " *** ")
+  (display " *** PRIME ***")
   (display elapsed-time))
 
 (define (search-for-primes start finish)
