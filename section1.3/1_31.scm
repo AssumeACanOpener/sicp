@@ -1,4 +1,5 @@
 #lang sicp
+(#%require "../common.scm")
 
 (define (pi)
   (* 4.0
@@ -13,12 +14,5 @@
       1
       (* (term a)
          (product term (next a) next b))))
-
-(define (inc n)
-  (+ n 1))
-
-(define (identity n) n)
-
-(define (square n) (* n n))
 
 (define (add-two n) (+ n 2))

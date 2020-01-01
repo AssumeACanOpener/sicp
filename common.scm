@@ -1,5 +1,11 @@
 #lang sicp
 
+(#%provide tolerance)
+(define tolerance .0001)
+
+(#%provide identity)
+(define (identity x) x)
+
 (#%provide square)
 (define (square x) (* x x))
 
@@ -10,10 +16,10 @@
 (define (average x y) (/ (+ x y) 2))
 
 (#%provide double)
-(define (double n) (+ n n))
+(define (double x) (+ x x))
 
 (#%provide halve)
-(define (halve n) (/ n 2))
+(define (halve x) (/ x 2))
 
 (#%provide divides?)
-(define (divides? a b) (= (remainder b a) 0))
+(define (divides? x y) (= (remainder y x) 0))

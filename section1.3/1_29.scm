@@ -1,4 +1,5 @@
 #lang sicp
+(#%require "../common.scm")
 
 (define (integral f a b n)
   (define (simpsons-rule n)
@@ -16,12 +17,6 @@
       0
       (+ (term a)
          (sum term (next a) next b))))
-
-(define (cube n)
-  (* n n n))
-
-(define (inc n)
-  (+ n 1))
 
 (define (f1 x)
   (* 2 x))

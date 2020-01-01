@@ -4,7 +4,7 @@
 (define (cube-root x)
 
   (define (good-enough? guess)
-    (< (abs (- 1 (/ (cube guess) x))) .001))
+    (< (abs (- 1 (/ (cube guess) x))) tolerance))
 
   (define (improve guess)
     (/ (+ (/ x (square guess)) (* 2 guess)) 3))
