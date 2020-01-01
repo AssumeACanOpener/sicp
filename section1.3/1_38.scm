@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (cont-frac n d k)
   (define (iter i)
     (if (= i k)

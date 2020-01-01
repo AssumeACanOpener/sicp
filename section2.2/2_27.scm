@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (deep-reverse s)
   (cond ((null? (cdr s))
           s)

@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (fold-right op initial sequence)
   (if (null? sequence)
       initial

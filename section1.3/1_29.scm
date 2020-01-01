@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (integral f a b n)
   (define (simpsons-rule n)
     (* (/ h 3) (sum simpsons-term 0 inc n)))

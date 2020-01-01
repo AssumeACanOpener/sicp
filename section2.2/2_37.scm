@@ -1,3 +1,5 @@
+#lang sicp
+
 (define nil '())
 
 (define (accumulate op initial sequence)

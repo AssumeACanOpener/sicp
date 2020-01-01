@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (for-each proc items)
   (if (not (null? items))
     (begin

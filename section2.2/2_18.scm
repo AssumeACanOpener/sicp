@@ -1,3 +1,5 @@
+#lang sicp
+
 (define a (list 1 2 3 4))
 
 (define (reverse s)

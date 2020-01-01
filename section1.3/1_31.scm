@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (pi)
   (* 4.0
      (/ (* 2 (product square 4 add-two 19998) 20000)

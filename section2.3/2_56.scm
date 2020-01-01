@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (=number? a b)
   (if (and (number? a) (number? b))
     (eq? a b)

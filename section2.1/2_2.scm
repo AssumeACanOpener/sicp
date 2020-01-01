@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (print-point p)
   (newline)
   (display "(")

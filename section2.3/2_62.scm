@@ -1,3 +1,5 @@
+#lang sicp
+
 (define set1 (list 1 2 3 4 5))
 (define set2 (list 3 4 5 6 7 8 9))
 

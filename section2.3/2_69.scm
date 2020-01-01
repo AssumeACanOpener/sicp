@@ -1,3 +1,5 @@
+#lang sicp
+
 (define nil '())
 
 (define (make-leaf symbol weight)

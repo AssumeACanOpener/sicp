@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (same-parity first . rest)
   (define (iter new-list rest)
     (if (null? rest)

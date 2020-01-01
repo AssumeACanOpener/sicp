@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (equal? s1 s2)
   (cond ((and (not (list? s1)) (not (list? s2)))
           (eq? s1 s2))
