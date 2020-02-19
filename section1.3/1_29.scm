@@ -17,6 +17,3 @@
       0
       (+ (term a)
          (sum term (next a) next b))))
-
-(define (f1 x)
-  (* 2 x))

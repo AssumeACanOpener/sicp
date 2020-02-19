@@ -7,6 +7,3 @@
         result
         (iter (next a) (+ (term a) result))))
   (iter a 0))
-
-(define (f1 x)
-  (* 2 x))

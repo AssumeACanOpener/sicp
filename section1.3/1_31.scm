@@ -1,18 +1,28 @@
 #lang sicp
 (#%require "../common.scm")
 
-(define (pi)
-  (* 4.0
-     (/ (* 2 (product square 4 add-two 19998) 20000)
-        (product square 3 add-two 19999))))
-
-(define (factorial n)
-  (product identity 1 inc n))
-
 (define (product term a next b)
   (if (> a b)
       1
       (* (term a)
          (product term (next a) next b))))
 
-(define (add-two n) (+ n 2))
+(define (compute-pi num-terms)
+  (define (pi-term n)
+    (if (even? n)
+        (/ n (+ n 1))
+        (/ (+ n 1) n)))
+  (* 4.0
+     (product pi-term 2 inc num-terms)))
+
+(define pi (compute-pi 10000))
+
+(define (factorial n)
+  (product identity 1 inc n))
+
+(define (iter-product term a next b)
+  (define (iter current result)
+    (if (> current b)
+        result
+        (iter (next current) (* (term current) result))))
+  (iter a 1))

@@ -1,4 +1,5 @@
 #lang sicp
+(#%require "../common.scm")
 
 (define (accumulate combiner null-value term a next b)
   (if (> a b)
@@ -19,19 +20,5 @@
 (define (sum term a next b)
   (accumulate + 0 term a next b))
 
-(define (inc n)
-  (+ n 1))
-
-(define (identity n) n)
-
-(define (square n) (* n n))
-
-(define (add-two n) (+ n 2))
-
 (define (factorial n)
   (product identity 1 inc n))
-
-(define (pi)
-  (* 4.0
-     (/ (* 2 (product square 4 add-two 199998) 200000)
-        (product square 3 add-two 199999))))
