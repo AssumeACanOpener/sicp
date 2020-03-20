@@ -1,0 +1,18 @@
+Using the substitution model:
+(f f)
+(f 2)
+(2 2)
+
+Which should then give an error, since 2 isn't a function.
+
+We can see this within Racket:
+
+Welcome to DrRacket, version 7.4 [3m].
+Language: sicp, with debugging; memory limit: 512 MB.
+> (define (f g) (g 2))
+> (f f)
+. . application: not a procedure;
+ expected a procedure that can be applied to arguments
+  given: 2
+  arguments...:
+>

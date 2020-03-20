@@ -1,0 +1,63 @@
+Welcome to DrRacket, version 7.4 [3m].
+Language: sicp, with debugging; memory limit: 512 MB.
+> (without-average-damping)
+Current guess: 2.0
+Current guess: 9.965784284662087
+Current guess: 3.004472209841214
+Current guess: 6.279195757507157
+Current guess: 3.759850702401539
+Current guess: 5.215843784925895
+Current guess: 4.182207192401397
+Current guess: 4.8277650983445906
+Current guess: 4.387593384662677
+Current guess: 4.671250085763899
+Current guess: 4.481403616895052
+Current guess: 4.6053657460929
+Current guess: 4.5230849678718865
+Current guess: 4.577114682047341
+Current guess: 4.541382480151454
+Current guess: 4.564903245230833
+Current guess: 4.549372679303342
+Current guess: 4.559606491913287
+Current guess: 4.552853875788271
+Current guess: 4.557305529748263
+Current guess: 4.554369064436181
+Current guess: 4.556305311532999
+Current guess: 4.555028263573554
+Current guess: 4.555870396702851
+Current guess: 4.555315001192079
+Current guess: 4.5556812635433275
+Current guess: 4.555439715736846
+Current guess: 4.555599009998291
+Current guess: 4.555493957531389
+Current guess: 4.555563237292884
+Current guess: 4.555517548417651
+Current guess: 4.555547679306398
+Current guess: 4.555527808516254
+Current guess: 4.555540912917957
+Current guess: 4.555532270803653
+Current guess: 4.555537970114198
+Current guess: 4.555534211524127
+Current guess: 4.555536690243655
+Current guess: 4.555535055574168
+Current guess: 4.5555361336081
+4.555535422664798
+
+So without average damping, it takes 40 tries before it gets close enough
+
+And with average damping:
+> (with-average-damping)
+Current guess: 2.0
+Current guess: 5.9828921423310435
+Current guess: 4.922168721308343
+Current guess: 4.628224318195455
+Current guess: 4.568346513136242
+Current guess: 4.5577305909237005
+Current guess: 4.555909809045131
+Current guess: 4.555599411610624
+Current guess: 4.5555465521473675
+Current guess: 4.555537551999825
+Current guess: 4.555536019631145
+4.555535758730802
+
+So with average damping it takes 11 tries, so a speed up by roughly 4 times.

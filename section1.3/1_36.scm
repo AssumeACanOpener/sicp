@@ -1,6 +1,6 @@
 #lang sicp
 
-(define tolerance 0.00001)
+(#%require "../common.scm")
 
 (define (fixed-point f first-guess)
   (define (close-enough? v1 v2)
@@ -15,5 +15,8 @@
           (try next))))
   (try first-guess))
 
-(define (x-raised-to-x)
+(define (without-average-damping)
   (fixed-point (lambda (x) (/ (log 1000) (log x))) 2.0))
+
+(define (with-average-damping)
+  (fixed-point (lambda (x) (average x (/ (log 1000) (log x)))) 2.0))

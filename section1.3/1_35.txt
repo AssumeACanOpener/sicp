@@ -1,0 +1,12 @@
+From section 1.2.2:
+
+phi^2 = phi + 1
+
+Dividing both sides by phi gives:
+
+phi = (phi + 1) / phi
+phi = phi / phi + 1 / phi
+phi = 1 + 1 / phi
+
+So, to find the golden ratio, we can find the fixed point
+of the function f(x) = 1 + 1/x.
