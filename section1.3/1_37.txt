@@ -1,0 +1,29 @@
+Welcome to DrRacket, version 7.4 [3m].
+Language: sicp, with debugging; memory limit: 512 MB.
+> (golden-ratio 1)
+1.0
+> (golden-ratio 2)
+2.0
+> (golden-ratio 3)
+1.5
+> (golden-ratio 4)
+1.6666666666666665
+> (golden-ratio 5)
+1.6
+> (golden-ratio 6)
+1.625
+> (golden-ratio 7)
+1.6153846153846154
+> (golden-ratio 8)
+1.619047619047619
+> (golden-ratio 9)
+1.6176470588235294
+> (golden-ratio 10)
+1.6181818181818184
+> (golden-ratio 11)
+1.6179775280898876
+> (golden-ratio 12)
+1.6180555555555558
+>
+
+Looks like k needs to be greater than or equal to 12 to get 4 decimal places of accuracy.
