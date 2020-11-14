@@ -4,7 +4,7 @@
 
 (define (fixed-point f first-guess)
   (define (close-enough? v1 v2)
-    (< (abs (- v1 v2)) tolerance))
+    (= v1 v2))
   (define (try guess)
     (let ((next (f guess)))
       (display "Current guess: ")
