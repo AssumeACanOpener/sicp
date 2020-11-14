@@ -27,4 +27,4 @@
 (define (product-of-relatively-primes n)
   (define (relatively-prime? x)
     (= 1 (gcd x n)))
-  (filtered-accumulate * 1 identity inc (- n 1) relatively-prime?))
+  (filtered-accumulate * 1 identity 1 inc (- n 1) relatively-prime?))
