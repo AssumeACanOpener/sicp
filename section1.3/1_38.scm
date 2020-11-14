@@ -1,17 +1,19 @@
 #lang sicp
 
-(define (cont-frac n d k)
-  (define (iter i)
-    (if (= i k)
-        (/ (n i) (d i))
-        (/ (n i) (+ (d i) (iter (+ i 1))))))
-  (iter 1))
-
-(define (e k)
+(define (aproximate-e k)
   (+ 2
-     (cont-frac (lambda (i) 1.0)
-                (lambda (i) 
-                  (if (= (remainder (+ i 1) 3) 0)
-                      (* (/ (+ i 1) 3) 2)
-                       1))
-                 k)))
+     (cont-frac (lambda (x) 1.0)
+                (lambda (x)
+                  (if (= (modulo (+ x 1) 3) 0)
+                      (* (/ (+ x 1) 3) 2)
+                      1.0))
+                k)))
+
+(define (cont-frac n d k)
+  (if (= k 1)
+      (/ (n 1) (d 1))
+      (/ (n 1)
+         (+ (d 1)
+            (cont-frac (lambda (x) (n (+ x 1)))
+                       (lambda (x) (d (+ x 1)))
+                       (- k 1))))))

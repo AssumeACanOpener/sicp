@@ -10,9 +10,10 @@
   ;(define (good-enough? guess)
   ;  (< (abs (- (square guess) x)) tolerance))
 
-  ; New good-enough? checks the percent difference
+  ; New good-enough?
+  ; True when improve doesn't change the guess.
   (define (good-enough? guess)
-    (< (abs (- 1 (/ (square guess) x))) tolerance))
+    (= guess (improve guess)))
   
   (define (sqrt-iter guess)
     (if (good-enough? guess)
