@@ -1,105 +1,60 @@
+Welcome to DrRacket, version 7.4 [3m].
+Language: sicp, with debugging; memory limit: 512 MB.
 > (search-for-primes 1001 1019)
+ *** PRIME ***  1009
+Elapsed: Time: 3
+ *** PRIME ***  1013
+Elapsed: Time: 3
+ *** PRIME ***  1019
+Elapsed: Time: 3
 
-1001
-1003
-1005
-1007
-1009 *** 3
-1011
-1013 *** 4
-1015
-1017
-1019 *** 3
 Done
-
 > (search-for-primes 10001 10039)
+ *** PRIME ***  10007
+Elapsed: Time: 11
+ *** PRIME ***  10009
+Elapsed: Time: 12
+ *** PRIME ***  10037
+Elapsed: Time: 10
+ *** PRIME ***  10039
+Elapsed: Time: 11
 
-10001
-10003
-10005
-10007 *** 9
-10009 *** 9
-10011
-10013
-10015
-10017
-10019
-10021
-10023
-10025
-10027
-10029
-10031
-10033
-10035
-10037 *** 9
-10039 *** 9
 Done
-
 > (search-for-primes 100001 100049)
+ *** PRIME ***  100003
+Elapsed: Time: 43
+ *** PRIME ***  100019
+Elapsed: Time: 43
+ *** PRIME ***  100043
+Elapsed: Time: 43
+ *** PRIME ***  100049
+Elapsed: Time: 43
 
-100001
-100003 *** 28
-100005
-100007
-100009
-100011
-100013
-100015
-100017
-100019 *** 28
-100021
-100023
-100025
-100027
-100029
-100031
-100033
-100035
-100037
-100039
-100041
-100043 *** 29
-100045
-100047
-100049 *** 29
 Done
-
 > (search-for-primes 1000001 1000049)
+ *** PRIME ***  1000003
+Elapsed: Time: 143
+ *** PRIME ***  1000033
+Elapsed: Time: 154
+ *** PRIME ***  1000037
+Elapsed: Time: 143
+ *** PRIME ***  1000039
+Elapsed: Time: 162
 
-1000001
-1000003 *** 80
-1000005
-1000007
-1000009
-1000011
-1000013
-1000015
-1000017
-1000019
-1000021
-1000023
-1000025
-1000027
-1000029
-1000031
-1000033 *** 81
-1000035
-1000037 *** 80
-1000039 *** 99
-1000041
-1000043
-1000045
-1000047
-1000049
 Done
 
 n=1000, approximately 3 seconds.
-n=10000, approximately 9 seconds.
-n=100000, approximately 28 seconds.
-n=1000000, approximately 80 seconds.
-3 * sqrt(10) = 9.5
-9 * sqrt(10) = 28.5
-28 * sqrt(10) = 88.5
+n=10000, approximately 11 seconds.
+n=100000, approximately 43 seconds.
+n=1000000, approximately 150 seconds.
+
+> (/ 11.0 3.0)
+3.6666666666666665
+> (/ 43.0 11.0)
+3.909090909090909
+> (/ 150.0 43.0)
+3.488372093023256
+> (sqrt 10)
+3.1622776601683795
 
 So yes, the timing seems compatible with the order of sqrt(10) prediction.

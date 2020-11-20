@@ -14,7 +14,9 @@
 
 (define (timed-prime-test n)
   (newline)
+  (display "Testing: ")
   (display n)
+  (newline)
   (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
