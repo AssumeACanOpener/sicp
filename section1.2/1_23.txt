@@ -1,104 +1,51 @@
+Welcome to DrRacket, version 7.4 [3m].
+Language: sicp, with debugging; memory limit: 512 MB.
 > (search-for-primes 1001 1019)
+ *** PRIME ***  1009
+Elapsed: Time: 2
+ *** PRIME ***  1013
+Elapsed: Time: 2
+ *** PRIME ***  1019
+Elapsed: Time: 1
 
-1001
-1003
-1005
-1007
-1009 *** 3
-1011
-1013 *** 3
-1015
-1017
-1019 *** 4
 Done
-
 > (search-for-primes 10001 10039)
+ *** PRIME ***  10007
+Elapsed: Time: 7
+ *** PRIME ***  10009
+Elapsed: Time: 9
+ *** PRIME ***  10037
+Elapsed: Time: 7
+ *** PRIME ***  10039
+Elapsed: Time: 8
 
-10001
-10003
-10005
-10007 *** 7
-10009 *** 6
-10011
-10013
-10015
-10017
-10019
-10021
-10023
-10025
-10027
-10029
-10031
-10033
-10035
-10037 *** 6
-10039 *** 6
 Done
-
 > (search-for-primes 100001 100049)
+ *** PRIME ***  100003
+Elapsed: Time: 28
+ *** PRIME ***  100019
+Elapsed: Time: 28
+ *** PRIME ***  100043
+Elapsed: Time: 28
+ *** PRIME ***  100049
+Elapsed: Time: 28
 
-100001
-100003 *** 17
-100005
-100007
-100009
-100011
-100013
-100015
-100017
-100019 *** 18
-100021
-100023
-100025
-100027
-100029
-100031
-100033
-100035
-100037
-100039
-100041
-100043 *** 17
-100045
-100047
-100049 *** 26
 Done
-
 > (search-for-primes 1000001 1000049)
+ *** PRIME ***  1000003
+Elapsed: Time: 89
+ *** PRIME ***  1000033
+Elapsed: Time: 66
+ *** PRIME ***  1000037
+Elapsed: Time: 75
+ *** PRIME ***  1000039
+Elapsed: Time: 67
 
-1000001
-1000003 *** 50
-1000005
-1000007
-1000009
-1000011
-1000013
-1000015
-1000017
-1000019
-1000021
-1000023
-1000025
-1000027
-1000029
-1000031
-1000033 *** 50
-1000035
-1000037 *** 49
-1000039 *** 50
-1000041
-1000043
-1000045
-1000047
-1000049
 Done
 
-n=1000, approximately 3 seconds.
-n=10000, approximately 6 seconds.
-n=100000, approximately 18 seconds.
-n=1000000, approximately 50 seconds.
+n=1000, approximately 2 seconds.
+n=10000, approximately 8 seconds.
+n=100000, approximately 28 seconds.
+n=1000000, approximately 70 seconds.
 
-So the next function seems to shave off about a third of the time.  My guess as to why it's not
-halved is that incrementing with next takes longer than incrementing by 1 because of the if
-statement in the next function.
+There's definitely a speed up.  And as n gets larger the elapsed time does indeed seem to be halved.
