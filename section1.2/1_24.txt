@@ -1,39 +1,63 @@
-> (timed-fast-prime 1009)
+> (fast-search-for-primes 1001 1019)
+ *** PRIME ***  1009
+Elapsed: Time: 1809
+ *** PRIME ***  1013
+Elapsed: Time: 1861
+ *** PRIME ***  1019
+Elapsed: Time: 1837
 
-1009 *** 422
-> (timed-fast-prime 1013)
+Done
+> (fast-search-for-primes 10001 10039)
+ *** PRIME ***  10007
+Elapsed: Time: 3911
+ *** PRIME ***  10009
+Elapsed: Time: 3592
+ *** PRIME ***  10037
+Elapsed: Time: 3392
+ *** PRIME ***  10039
+Elapsed: Time: 3378
 
-1013 *** 191
-> (timed-fast-prime 1019)
+Done
+> (fast-search-for-primes 100001 100049)
+ *** PRIME ***  100003
+Elapsed: Time: 15852
+ *** PRIME ***  100019
+Elapsed: Time: 2978
+ *** PRIME ***  100043
+Elapsed: Time: 2848
+ *** PRIME ***  100049
+Elapsed: Time: 2734
 
-1019 *** 197
-> (timed-fast-prime 10007)
+Done
+> (fast-search-for-primes 1000001 1000049)
+ *** PRIME ***  1000003
+Elapsed: Time: 6544
+ *** PRIME ***  1000033
+Elapsed: Time: 5648
+ *** PRIME ***  1000037
+Elapsed: Time: 5280
+ *** PRIME ***  1000039
+Elapsed: Time: 5000
 
-10007 *** 234
-> (timed-fast-prime 10009)
+Done
+> (fast-search-for-primes 10000001 10000199)
+ *** PRIME ***  10000019
+Elapsed: Time: 33391
+ *** PRIME ***  10000079
+Elapsed: Time: 4057
+ *** PRIME ***  10000103
+Elapsed: Time: 3946
+ *** PRIME ***  10000121
+Elapsed: Time: 3795
+ *** PRIME ***  10000139
+Elapsed: Time: 3595
+ *** PRIME ***  10000141
+Elapsed: Time: 3466
+ *** PRIME ***  10000169
+Elapsed: Time: 3401
+ *** PRIME ***  10000189
+Elapsed: Time: 3593
 
-10009 *** 281
-> (timed-fast-prime 10037)
+Done
 
-10037 *** 240
-> (timed-fast-prime 100003)
-
-100003 *** 264
-> (timed-fast-prime 100019)
-
-100019 *** 297
-> (timed-fast-prime 100043)
-
-100043 *** 275
-> (timed-fast-prime 1000003)
-
-1000003 *** 340
-> (timed-fast-prime 1000033)
-
-1000033 *** 310
-> (timed-fast-prime 1000037)
-
-1000037 *** 564
-
-
-I would expect times to be very similar since the algorithm is logrithmic, and that indeed seems to be the case.
+I would expect times to be very similar since the algorithm is logrithmic, and that indeed seems to be the case, especially as n gets very large.

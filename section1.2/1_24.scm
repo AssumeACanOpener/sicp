@@ -17,15 +17,24 @@
         ((fermat-test n) (fast-prime? n (- times 1)))
         (else false)))
 
-(define (timed-fast-prime n)
-
-  (define (report-prime elapsed-time)
-    (display " *** PRIME ***")
-    (display elapsed-time))
-
-  (define (start-prime-test n start-time)
-    (if (fast-prime? n 100) (report-prime (- (runtime) start-time))))
-  
-  (newline)
-  (display n)
+(define (timed-prime-test n)
   (start-prime-test n (runtime)))
+
+(define (start-prime-test n start-time)
+  (if (fast-prime? n 1000)
+      (report-prime (- (runtime) start-time) n)))
+
+(define (report-prime elapsed-time n)
+  (display " *** PRIME ***  ")
+  (display n)
+  (newline)
+  (display "Elapsed: Time: ")
+  (display elapsed-time)
+  (newline))
+
+(define (fast-search-for-primes start finish)
+  (timed-prime-test start)
+  (if (>= start finish)
+      (begin (newline)
+             (display "Done"))
+      (fast-search-for-primes (+ start 2) finish)))
