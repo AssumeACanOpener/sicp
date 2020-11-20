@@ -13,19 +13,19 @@
   (= n (smallest-divisor n)))
 
 (define (timed-prime-test n)
-  (newline)
-  (display "Testing: ")
-  (display n)
-  (newline)
   (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
   (if (prime? n)
-      (report-prime (- (runtime) start-time))))
+      (report-prime (- (runtime) start-time) n)))
 
-(define (report-prime elapsed-time)
-  (display " *** PRIME ***")
-  (display elapsed-time))
+(define (report-prime elapsed-time n)
+  (display " *** PRIME ***  ")
+  (display n)
+  (newline)
+  (display "Elapsed: Time: ")
+  (display elapsed-time)
+  (newline))
 
 (define (search-for-primes start finish)
   (timed-prime-test start)
