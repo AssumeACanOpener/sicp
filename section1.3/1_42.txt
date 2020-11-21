@@ -1,0 +1,4 @@
+Welcome to DrRacket, version 7.4 [3m].
+Language: sicp, with debugging; memory limit: 512 MB.
+> ((compose square inc) 6)
+49
