@@ -1,13 +1,9 @@
 #lang sicp
 
-(define (compose f g)
-  (lambda (x) (f (g x))))
+(#%require "../common.scm")
 
-(define (square x) (* x x))
-
-(define (repeated f n)
-  (define (iter repeated-f i)
-    (if (= i n)
-        repeated-f
-        (iter (compose f repeated-f) (+ i 1))))
-  (iter f 1))
+(define (repeated proc n)
+  (lambda (x)
+    (if (= n 1)
+        (proc x)
+        (proc ((repeated proc (- n 1)) x)))))

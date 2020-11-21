@@ -1,0 +1,4 @@
+Welcome to DrRacket, version 7.4 [3m].
+Language: sicp, with debugging; memory limit: 512 MB.
+> ((repeated square 2) 5)
+625
