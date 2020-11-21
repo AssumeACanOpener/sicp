@@ -1,13 +1,15 @@
 #lang sicp
 
+(#%require "../common.scm")
+
 (define (tan-cf x k)
-  (let ((xsq (* x x)))
-    (cont-frac (lambda (i)
-                 (if (= i 1)
-                     x
-                     (- xsq)))
-               (lambda (i) (- (* i 2) 1))
-               k)))
+  (define (numer i)
+    (if (= i 1)
+        x
+        (- (square x))))
+  (define (denom i)
+    (- (* i 2.0) 1.0))
+  (cont-frac numer denom k))
 
 (define (cont-frac n d k)
   (if (= k 1)
