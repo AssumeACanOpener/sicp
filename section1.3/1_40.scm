@@ -1,10 +1,10 @@
 #lang sicp
 
-(define tolerance 0.00001)
+(#%require "../common.scm")
 
 (define (fixed-point f first-guess)
   (define (close-enough? v1 v2)
-    (< (abs (- v1 v2)) tolerance))
+    (= v1 v2))
   (define (try guess)
     (let ((next (f guess)))
       (if (close-enough? guess next)
@@ -20,15 +20,14 @@
   (fixed-point (newton-transform g) guess))
 
 (define (deriv g)
+  (define dx 0.00001)
   (lambda (x)
     (/ (- (g (+ x dx)) (g x))
        dx)))
 
-(define dx 0.00001)
-
 (define (cubic a b c)
   (lambda (x)
-    (+ (* x x x)
-       (* a x x)
+    (+ (cube x)
+       (* a (square x))
        (* b x)
        c)))
