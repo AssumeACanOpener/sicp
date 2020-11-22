@@ -1,5 +1,7 @@
 #lang sicp
 
+(#%require "../common.scm")
+
 (define (print-point p)
   (newline)
   (display "(")
@@ -26,10 +28,9 @@
 (define (y-point point)
   (cdr point))
 
+(define (average-points p1 p2)
+  (make-point (average (x-point p1) (x-point p2))
+              (average (y-point p1) (y-point p2))))
+
 (define (midpoint-segment segment)
-  (make-point (/ (+ (x-point (start-segment segment))
-                    (x-point (end-segment segment)))
-                 2)
-              (/ (+ (y-point (start-segment segment))
-                    (y-point (end-segment segment)))
-                 2)))
+  (average-points (start-segment segment) (end-segment segment)))
