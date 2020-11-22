@@ -13,7 +13,13 @@
 (define (cube x) (* x x x))
 
 (#%provide average)
-(define (average x y) (/ (+ x y) 2))
+(define (average . values)
+  (define (sum s)
+    (if (null? s)
+        0
+        (+ (car s) (sum (cdr s)))))
+  
+  (/ (sum values) (length values)))
 
 (#%provide double)
 (define (double x) (+ x x))
