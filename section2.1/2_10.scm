@@ -5,10 +5,9 @@
                  (+ (upper-bound x) (upper-bound y))))
 
 (define (sub-interval x y)
-  (make-interval (- (lower-bound x)
-                    (lower-bound y))
-                 (- (upper-bound x)
-                    (upper-bound y))))
+  (let ((bound1 (- (lower-bound x) (lower-bound y)))
+        (bound2 (- (upper-bound x) (upper-bound y))))
+    (make-interval (min bound1 bound2) (max bound1 bound2))))
 
 (define (mul-interval x y)
   (let ((p1 (* (lower-bound x) (lower-bound y)))
@@ -26,8 +25,7 @@
                        (/ 1.0 (lower-bound y))))))
 
 (define (spans-zero? interval)
-  (and (negative? (lower-bound interval))
-       (positive? (upper-bound interval))))
+  (= (lower-bound interval) (upper-bound interval)))
 
 (define (make-interval a b) (cons a b))
 
