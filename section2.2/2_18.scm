@@ -6,4 +6,4 @@
   (if (null? (cdr s))
       s
       (append (reverse (cdr s))
-              (list (car s))))
+              (list (car s)))))
