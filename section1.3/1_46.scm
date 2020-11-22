@@ -1,26 +1,21 @@
 #lang sicp
 
-(define (average x y)
-  (/ (+ x y) 2.0))
+(#%require "../common.scm")
 
-(define tolerance 0.00001)
+(define (iterative-improve good-enough? improve)
+  (define (iter guess)
+    (if (good-enough? guess)
+        guess
+        (iter (improve guess))))
+  iter)
 
-(define (square-root x)
-  (fixed-point (lambda (y) (average y (/ x  y)))
-               1.0))
-
-(define (good-enough? guess next)
-  (< (abs (- guess next)) tolerance))
+(define (sqrt x)  
+  (define (good-enough? guess)
+    (= (square guess) x))
+  (define (improve guess) (average guess (/ x guess)))
+  ((iterative-improve good-enough? improve) 1.0))
 
 (define (fixed-point f first-guess)
-  (iterative-improve f
-                     good-enough?
-                     first-guess))
-
-(define (iterative-improve improve good-enough? first-guess)
-  (define (try guess)
-    (let ((next (improve guess)))
-      (if (good-enough? guess next)
-          next
-          (try next))))
-  (try first-guess))
+  (define (close-enough? x)
+    (= x (f x)))
+  ((iterative-improve close-enough? f) first-guess))
