@@ -1,8 +1,8 @@
 #lang sicp
 
-(define (last-pair list)
-  (if (null? (cdr list))
-      list
-      (last-pair (cdr list))))
+(define (last-pair s)
+  (if (null? (cdr s))
+      s
+      (last-pair (cdr s))))
 
 (define a (list 1 2 3 4))
